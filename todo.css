@@ -1,0 +1,70 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(131, 134, 133);
+}
+
+.container{
+  padding: 100px;
+  background-color: rgb(17, 121, 98);
+  background-image: linear-gradient(rgb(0,0,0,0.8),rgb(0,0,0,0.1));
+  margin: auto;
+  width: 50%;
+  margin-top:50px;
+  border: 2px solid rgb(10, 70, 10);
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px  rgb(1, 62, 43);
+}
+
+h1{
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: 200px 150px 100px 100px 100px ;
+  padding: 10px;
+  grid-column-gap: 10px;
+  margin-top:10px;
+  grid-row-gap:10px;
+ 
+}
+.todo-container,.grid-container{
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+input{
+  padding:10px;
+  border-radius: 5px;
+  font-size: 15px;
+
+}
+
+
+
+#add-button{
+  padding:10px;
+  border-radius: 5px;
+  background-color: rgb(110, 213, 7);
+  color: white;
+  font-size: 18px;
+}
+
+.delete-button{
+  padding:10px;
+  border-radius: 5px;
+  background-color: rgb(188, 34, 13);
+  color: white;
+  font-size: 18px;
+
+}
+
+.others{
+  padding:10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+}

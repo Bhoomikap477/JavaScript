@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <style>
+
+    body{
+      background-color: rgb(248, 216, 174);
+    }
+    .container{
+      padding: 50px;
+      background-color: white;
+      border: 1px solid grey; 
+      margin-top: 200px;
+      margin-left: 500px;
+      margin-right: 500px;
+      border-radius: 10px;
+    }
+
+    .text-field{
+      padding: 10px;
+
+    }
+    #text{
+      width: 100%;
+      height: 50px;
+      border: 1px solid grey;
+      font-size: 20px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    button{
+      background-color: rgb(10, 10, 52);
+      color: white;
+      font-size: 30px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    #qrArea{
+      transition: max-height 1s;
+    }
+
+    .error{
+      animation: shake 0.1s linear 10;
+    }
+
+    @keyframes shake{
+    
+    0%{
+      transform : translatex(0);
+    }
+    25%{
+      transform : translatex(-2px);
+    }
+    50%{
+      transform : translatex(0);
+    }
+    75%{
+      transform : translatex(2px);
+    }
+
+    100%{
+      transform: translatex(0);
+    }
+  }
+
+    
+  </style>
+</head>
+<body>
+<center>
+
+  <div class="container">
+
+    <div class="text-field">
+      <input type="text" id="text" placeholder="Enter Text or URL">
+    </div>
+
+    <div id="qrArea">
+      <img src="" alt="" id="qrImg">
+    </div>
+
+    <div class="generateButton">
+      <button id="genButt" onclick="getQRCode()">Generate QR Code</button>
+    </div>
+
+  </div>
+
+</center>
+
+<script>
+
+  let qrArea=document.getElementById('qrArea');
+  let qrImg=document.getElementById('qrImg');
+  let qrText = document.getElementById('text');
+
+  function getQRCode(){
+      if(qrText.value.length > 0){
+        qrImg.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ qrText.value;
+      }else{
+        qrText.classList.add('error');
+        setTimeout(()=> {
+          qrText.classList.remove('error');
+        },1000);
+      }
+  }
+</script>
+</body>
+</html>
