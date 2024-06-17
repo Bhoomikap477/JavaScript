@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .clockBorder {
+        width: 400px;
+        height: 400px;
+        border: 10px solid black;
+        border-radius: 50%;
+        background-color: rgb(204, 206, 180);
+        font-size: 20px;
+      }
+
+      .hand {
+        width: 190px;
+        margin-left: 10px;
+        height: 6px;
+        background-color: black;
+        position: absolute;
+        top: 30%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+        transition: all 0.1s;
+        transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        border-radius: 80px;
+      }
+
+      .hour-hand {
+        width: 130px;
+        margin-left: 70px;
+      }
+      .first {
+        margin: 35px 10px;
+        display: flex;
+      }
+
+      .sec {
+        margin-left: 160px;
+      }
+
+      .sec1 {
+        margin-left: 260px;
+      }
+      .sec3 {
+        margin-left: 300px;
+      }
+
+      .sec4 {
+        margin-left: 300px;
+      }
+
+      .twelve {
+        margin-top: 10px;
+      }
+
+      .six {
+        top: 90%;
+      }
+
+      .one {
+        margin: 0 60px;
+      }
+
+      .two {
+        margin: 0 30px;
+      }
+
+      .three {
+        margin: 0 20px;
+      }
+
+      .four {
+        margin: 0 30px;
+      }
+
+      .five {
+        margin: 0 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>JAVA SCRIPT CLOCK</h1>
+      <div class="clock">
+        <div class="clockBorder">
+          <div class="twelve">12</div>
+          <div class="first">
+            <div class="one">11</div>
+            <div class="sec">1</div>
+          </div>
+          <div class="first">
+            <div class="two">10</div>
+            <div class="sec1">2</div>
+          </div>
+          <div class="first">
+            <div class="three">9</div>
+            <div class="sec3">3</div>
+          </div>
+          <div class="first">
+            <div class="four">8</div>
+            <div class="sec1">4</div>
+          </div>
+          <div class="first">
+            <div class="five">7</div>
+            <div class="sec">5</div>
+          </div>
+          <div class="six">6</div>
+
+          <div class="hand min-hand"></div>
+          <div class="hand hour-hand"></div>
+          <div class="hand second-hand"></div>
+        </div>
+      </div>
+    </center>
+
+    <script>
+      const second_hand = document.querySelector(".second-hand");
+
+      const minute_hand = document.querySelector(".min-hand");
+
+      const hour_hand = document.querySelector(".hour-hand");
+      function setDate() {
+        const time = new Date();
+
+        const seconds = time.getSeconds();
+        const secondsDegree = (seconds / 60) * 360 + 90;
+        second_hand.style.transform = `rotate(${secondsDegree}deg)`;
+
+        const minutes = time.getMinutes();
+        const MinutesDegree = (minutes / 60) * 360 + 90;
+        minute_hand.style.transform = `rotate(${MinutesDegree}deg)`;
+
+        const hours = time.getHours();
+        const hoursDegree = (hours / 12) * 360 + 90;
+        hour_hand.style.transform = `rotate(${hoursDegree}deg)`;
+      }
+
+      setInterval(setDate, 1000);
+    </script>
+  </body>
+</html>
